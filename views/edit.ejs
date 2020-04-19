@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Edit Page</h1>
+
+    <% user.bookmarkedEvents.forEach(function(event) { %>
+        <div>
+          <span class="card-title"> 
+            <span class="student-name"><a href="<%= event.url %>"><%= event.name %></a></span>
+          </span>
+        </div>
+        <% user.notes.forEach(function(note) {if (String(note.eventref) === event.id) { %>
+            <form action="/profile/<%=event.id%>?_method=PUT" method="POST">
+                Note: <input type="text" name="text" value="<%=note.text%>"/>
+                <input type="submit" name="" value="Submit Changes"/>
+        <%} }) %>
+      <% }) %>
+    
+  
+  </body>
+</html>
+

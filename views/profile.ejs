@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= user.name %>'s Bookmarked Events</h1>
+    
+    <% user.bookmarkedEvents.forEach(function(event) { %>
+      <div>
+        <span class="card-title"> 
+          <span class="student-name"><a href="<%= event.url %>"><%= event.name %></a></span>
+          <form action="/profile/<%= event.id %>" method='POST'> 
+            <input type="text" name="text">
+            <button type='submit'>
+              Add Comment
+            </button>
+          </form>
+        </span>
+      </div>
+      <% user.notes.forEach(function(note) {if (String(note.eventref) === event.id) { %>
+      <ul>
+        <li><%= note.text %><a href="/profile/edit">Edit</a><form action="/profile/<%= event.id %>?_method=DELETE" method="POST">
+          <button type="submit">DELETE COMMENT</button></form></li> <!--these should be a href that hits the router for the delete function  nested here that p-->
+      </ul>
+      <%} }) %>
+    <% }) %>
+  </body>
+</html>
+
