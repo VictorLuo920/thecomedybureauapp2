@@ -1,10 +1,16 @@
 const router = require('express').Router();
 const usersCtrl = require('../controllers/users');
+const passport = require('passport');
 
-router.get('/', usersCtrl.show)
+const isLoggedIn = (req, res, next) => {
+    if ( req.isAuthenticated() ) return next();
+    res.redirect('/auth/google');
+}
+
+router.get('/', isLoggedIn, usersCtrl.show)
 router.post('/:id', usersCtrl.createNote)
 router.get('/edit', usersCtrl.edit)
-router.put('/:id', usersCtrl.update)
-router.delete('/:id', usersCtrl.delete)
+router.put('/update/:id', usersCtrl.update)
+router.delete('/delete/:id', usersCtrl.delete)
 
 module.exports = router;

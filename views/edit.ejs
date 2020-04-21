@@ -14,9 +14,10 @@
           </span>
         </div>
         <% user.notes.forEach(function(note) {if (String(note.eventref) === event.id) { %>
-            <form action="/profile/<%=event.id%>?_method=PUT" method="POST">
+            <form action="/profile/update/<%=note._id%>?_method=PUT" method="POST">
                 Note: <input type="text" name="text" value="<%=note.text%>"/>
                 <input type="submit" name="" value="Submit Changes"/>
+                </form>
         <%} }) %>
       <% }) %>
     

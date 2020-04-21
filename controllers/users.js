@@ -33,13 +33,16 @@ const edit = (req, res, next) => {
 
 // should be saving the edits that are loaded into the inputs, but figuring out how to push the req.body (text) into the text: string value in my notes schema...
 const update = (req, res, next) => {
-  Event.findOne({_id: req.params.id}, (err, event) => {
-    User.findById(req.user._id).populate('bookmarkedEvents').then( (err, userData) => {
-      const notetexttoupdate = userData.notes.find( ({ eventref }) => eventref === req.params.id).text;
-      notetexttoupdate = req.body.text;
-      res.redirect('/profile')
-    });
-})};
+  User.findById((req.user._id), (err, userData) => {
+    console.log(userData.notes); // spits out the array of notes[noteSchema] array
+    console.log(req.params.id); // does spit out the note._id that it corresponds to 
+    noteToEdit = userData.notes.find((note) => {return note._id = req.params.id});
+    console.log(noteToEdit); // returns undefined
+    noteToEdit.text = req.body.text; // however, when I try to do this, I get undefined...
+    userData.save();
+    res.redirect('/profile');
+  });
+};
 
 // should be tied to an inline button that displays on the profile page that simply redirects or refreshes the profile page to show that the changes were made
 const deleteNote = (req, res, next) => {
