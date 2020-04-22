@@ -4,6 +4,9 @@
 ### App Description
 Appifying the comedy bureau website to make it a user-centric app where users can not only view events, but save them to ther profile and make comments, a tracker for the aspiring standup comic. Currently consuming ticketmaster API as proof of concept 
 
+### Deployed Heroku Link
+https://thecomedybureauappdraftversion.herokuapp.com/
+
 
 ### Technologies Used
 Node.js, Express, MongoDB, Mongoose, Passport, etc.
