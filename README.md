@@ -12,8 +12,8 @@ Node.js, Express, MongoDB, Mongoose, Passport, etc.
 https://trello.com/b/LUFloJM2/the-comedy-bureau-app
 https://www.lucidchart.com/invitations/accept/b749d5f3-8b27-4e87-abca-747887f55ff2
 
-(/images/screenshot1.png)
-(/images/screenshot2.png)
+![screenshot1](/images/screenshot1.png)
+![screenshot2](/images/screenshot2.png)
 
 ### Future Plans
 * This was a really tough challenge, and I would definitely like to refactor this from the ground up with real data and better ERD from the beginning.
