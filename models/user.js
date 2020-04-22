@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   email: String,
   avatar: String,
   googleId: String,
-  notes: [{type: Schema.Types.ObjectId, ref: 'Note'}], // find some way to embed this into the bookmarked events
+  notes: [{type: Schema.Types.ObjectId, ref: 'Note'} ], // find some way to embed this into the bookmarked events
   bookmarkedEvents: [{type: Schema.Types.ObjectId, ref: 'Event', unique: true} ],
   // recentPosts: [{type: Schema.Types.ObjectId.comments, ref: 'Event'}] // not sure how to do this to refer to the embedded posts of another, but this is probably an extra feature to add later down the ice box
   }, {

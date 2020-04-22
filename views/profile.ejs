@@ -22,8 +22,7 @@
       <% user.notes.forEach(function(note) {if (String(note.eventref) === event.id) { %>
       <ul>
         <li><%= note.text %><a href="/profile/edit">Edit</a><form action="/profile/delete/<%= note._id %>?_method=DELETE" method="POST">
-          <button type="submit">DELETE COMMENT</button></form></li> <!--these should be a href that hits the router for the delete function  nested here that p-->
-      </ul>
+          <button type="submit">DELETE COMMENT</button></form></li> 
       <%} }) %>
     <% }) %>
   </body>
