@@ -17,7 +17,7 @@ const index = (req, res, next) => {
         }
       )
     };
-    res.render('events', {events: eventsData._embedded.events});
+    res.render('events', {events: eventsData._embedded.events, user: req.user});
   });
 }
 

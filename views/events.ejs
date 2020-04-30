@@ -7,10 +7,14 @@
   <body>
     <h1>Events Page</h1>
     <p>Welcome to The Comedy Bureau App</p>
-    <a href="/auth/google">Login with Google</a><br>
-    <a href="/logout">Logout</a><br>
-    <a href="/profile">Go to the User Page</a><br>
+    <% if (!user) { %>
+      <a href="/auth/google">Login with Google</a><br>
+    <% } else { %>
+      <a href="/profile">Go to the User Page</a><br>
+      <a href="/logout">Logout</a><br>
+    <% } %>
    
+  
   <!-- UI Goes here! WORKING UI!!! -->
   <% events.forEach(function(event) { %>
     <div>

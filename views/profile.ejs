@@ -6,6 +6,9 @@
   </head>
   <body>
     <h1><%= user.name %>'s Bookmarked Events</h1>
+
+    <a href="/">See All Events</a><br>
+    <a href="/logout">Logout</a><br>
     
     <% user.bookmarkedEvents.forEach(function(event) { %>
       <div>
